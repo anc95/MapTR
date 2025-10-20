@@ -786,6 +786,7 @@ def create_nuscenes_infos(root_path,
 
 
     from nuscenes.utils import splits
+    print(version)
     available_vers = ['v1.0-trainval', 'v1.0-test', 'v1.0-mini']
     assert version in available_vers
     if version == 'v1.0-trainval':
@@ -924,7 +925,7 @@ args = parser.parse_args()
 
 
 if __name__ == '__main__':
-    train_version = f'{args.version}-trainval'
+    train_version = f'{args.version}'
     nuscenes_data_prep(
         root_path=args.root_path,
         can_bus_root_path=args.canbus,
@@ -933,7 +934,7 @@ if __name__ == '__main__':
         dataset_name='NuScenesDataset',
         out_dir=args.out_dir,
         max_sweeps=args.max_sweeps)
-    test_version = f'{args.version}-test'
+    test_version = f'{args.version}'
     nuscenes_data_prep(
         root_path=args.root_path,
         can_bus_root_path=args.canbus,
